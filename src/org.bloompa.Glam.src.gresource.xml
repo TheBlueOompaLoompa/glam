@@ -4,5 +4,6 @@
     <file>main.js</file>
     <file>window.js</file>
     <file>clamav.js</file>
+    <file>dashboard_page.js</file>
   </gresource>
 </gresources>

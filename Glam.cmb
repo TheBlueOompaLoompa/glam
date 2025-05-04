@@ -3,6 +3,9 @@
 <!-- Created with Cambalache 0.96.0 -->
 <cambalache-project version="0.96.0" target_tk="gtk-4.0">
   <css filename="src/css/style.css" is_global="1"/>
-  <ui template-class="GlamWindow" filename="src/window.ui" sha256="b641f96d77bb0c79c476ba17d074d838d0f06a58f25e8158bd5b4559ad0c2a94"/>
+  <ui template-class="DashPage" filename="src/dashboard_page.ui" sha256="5d0820f4e04a8eabc11c8ebaca695af6eb9e4c8acf5c56d8b84dcbfe85c73439"/>
   <ui filename="src/gtk/help-overlay.ui" sha256="e1dd6bba83d54aebf2dea215433e336a2429fff28f12ae1479b986905505b1a7"/>
+  <ui template-class="GlamWindow" filename="src/window.ui" sha256="ff0e6a28ed71848524baa63212a8348ebb45f918fd208d05948dbfdc456f9cc8">
+    <requires>DashPage</requires>
+  </ui>
 </cambalache-project>

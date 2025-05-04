@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.96.0 -->
+<interface>
+  <!-- interface-name dashboard_page.ui -->
+  <requires lib="gtk" version="4.10"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="DashPage" parent="GtkBox">
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <child>
+      <object class="GtkScrolledWindow">
+        <property name="child">
+          <object class="GtkFlowBox">
+            <property name="column-spacing">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="margin-end">6</property>
+            <property name="margin-start">6</property>
+            <property name="margin-top">6</property>
+            <property name="max-children-per-line">3</property>
+            <property name="row-spacing">6</property>
+            <child>
+              <object class="GtkFlowBoxChild">
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="halign">start</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">6</property>
+                    <property name="width-request">100</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="css-classes">big-head</property>
+                        <property name="label" translatable="yes">ClamAV Service State</property>
+                        <property name="lines">2</property>
+                        <property name="width-request">122</property>
+                        <property name="xalign">0.0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="halign">start</property>
+                        <property name="valign">end</property>
+                        <property name="vexpand">True</property>
+                        <child>
+                          <object class="GtkSwitch" id="rtproc_switch">
+                            <property name="has-tooltip">True</property>
+                            <property name="tooltip-text" translatable="yes">Start/Stop ClamAV</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+                <property name="height-request">120</property>
+                <property name="valign">start</property>
+              </object>
+            </child>
+          </object>
+        </property>
+        <property name="hscrollbar-policy">never</property>
+      </object>
+    </child>
+  </template>
+</interface>

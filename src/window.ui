@@ -2,9 +2,8 @@
 <!-- Created with Cambalache 0.96.0 -->
 <interface>
   <!-- interface-name window.ui -->
-  <requires lib="Adw" version="1.0"/>
   <requires lib="gio" version="2.0"/>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk" version="4.10"/>
   <requires lib="libadwaita" version="1.7"/>
   <template class="GlamWindow" parent="AdwApplicationWindow">
     <property name="accessible-role">window</property>
@@ -36,101 +35,14 @@
                 <child>
                   <object class="AdwViewStack" id="main_stack">
                     <property name="name">main_stack</property>
+                    <property name="visible-child-name">dash</property>
                     <child>
                       <object class="AdwViewStackPage" id="dash_page">
                         <property name="child">
-                          <object class="GtkFlowBox">
-                            <property name="column-spacing">6</property>
-                            <property name="homogeneous">True</property>
-                            <property name="margin-end">6</property>
-                            <property name="margin-start">6</property>
-                            <property name="margin-top">6</property>
-                            <property name="max-children-per-line">3</property>
-                            <property name="min-children-per-line">1</property>
-                            <property name="row-spacing">6</property>
-                            <property name="selection-mode">none</property>
-                            <property name="valign">start</property>
-                            <child>
-                              <object class="GtkFlowBoxChild">
-                                <property name="child">
-                                  <object class="GtkBox">
-                                    <property name="halign">start</property>
-                                    <property name="orientation">vertical</property>
-                                    <property name="spacing">6</property>
-                                    <property name="width-request">100</property>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="css-classes">big-head</property>
-                                        <property name="label" translatable="yes">ClamAV Running</property>
-                                        <property name="lines">2</property>
-                                        <property name="width-request">122</property>
-                                        <property name="wrap">True</property>
-                                        <property name="xalign">0.0</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkBox">
-                                        <property name="halign">start</property>
-                                        <property name="valign">end</property>
-                                        <property name="vexpand">True</property>
-                                        <child>
-                                          <object class="GtkSwitch" id="rtproc_switch">
-                                            <property name="has-tooltip">True</property>
-                                            <property name="tooltip-text" translatable="yes">Start/Stop ClamAV</property>
-                                          </object>
-                                        </child>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </property>
-                                <property name="height-request">100</property>
-                                <property name="valign">start</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkFlowBoxChild">
-                                <property name="child">
-                                  <object class="GtkBox">
-                                    <property name="halign">start</property>
-                                    <property name="orientation">vertical</property>
-                                    <property name="spacing">6</property>
-                                    <property name="width-request">100</property>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="css-classes">big-head</property>
-                                        <property name="label" translatable="yes">One Time Scan</property>
-                                        <property name="lines">2</property>
-                                        <property name="width-request">122</property>
-                                        <property name="wrap">True</property>
-                                        <property name="xalign">0.0</property>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkBox">
-                                        <property name="halign">start</property>
-                                        <property name="spacing">6</property>
-                                        <child>
-                                          <object class="GtkButton">
-                                            <property name="label">Select a File or Directory</property>
-                                          </object>
-                                        </child>
-                                        <child>
-                                          <object class="GtkButton">
-                                            <property name="label">Run Scan</property>
-                                          </object>
-                                        </child>
-                                      </object>
-                                    </child>
-                                  </object>
-                                </property>
-                                <property name="height-request">100</property>
-                                <property name="valign">start</property>
-                              </object>
-                            </child>
-                          </object>
+                          <object class="DashPage" id="dash"/>
                         </property>
-                        <property name="icon-name">go-home-symbolic</property>
-                        <property name="name">dashboard</property>
+                        <property name="icon-name">computer-symbolic</property>
+                        <property name="name">dash</property>
                         <property name="title">Dashboard</property>
                       </object>
                     </child>
@@ -211,4 +123,8 @@
       </item>
     </section>
   </menu>
+  <object class="GtkFileDialog" id="one_time_dialog">
+    <property name="accept-label">Select</property>
+    <property name="title">Select a file or Directory to Scan</property>
+  </object>
 </interface>

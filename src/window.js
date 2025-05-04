@@ -21,34 +21,17 @@
 import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
 import Adw from 'gi://Adw';
+import { DashPage } from './dashboard_page.js';
 
 export const GlamWindow = GObject.registerClass({
     GTypeName: 'GlamWindow',
     Template: 'resource:///org/bloompa/Glam/window.ui',
-    InternalChildren: ['load_stack', 'rtproc_switch'],
+    InternalChildren: ['load_stack', 'dash'],
 }, class GlamWindow extends Adw.ApplicationWindow {
     constructor(application) {
         super({ application });
-
-        const av = application.av;
-
-        this._rtproc_switch.set_active(av.clamdRunning)
-
-        let rtprocStateLock = false;
-        this._rtproc_switch.connect('state-set', (_, state) => {
-            if(rtprocStateLock) return;
-            if(state) {
-                av.startClamd();
-            }else {
-                av.stopClamd();
-            }
-        });
-
-        setInterval(() => {
-            rtprocStateLock = true;
-            this._rtproc_switch.set_active(av.checkClamdRunning());
-            rtprocStateLock = false;
-        }, 1000);
+        this._dash.init = this._dash.init.bind(this._dash);
+        this._dash.init(application.av);
     }
 });
 
