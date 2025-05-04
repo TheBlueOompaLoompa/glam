@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=glam
+Exec=org.bloompa.Glam
+Icon=org.bloompa.Glam
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

@@ -1,0 +1,49 @@
+{
+    "id" : "org.bloompa.Glam",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "47",
+    "sdk" : "org.gnome.Sdk",
+    "sdk-extensions" : [
+        "org.freedesktop.Sdk.Extension.node20",
+        "org.freedesktop.Sdk.Extension.typescript"
+    ],
+    "command" : "org.bloompa.Glam",
+    "finish-args" : [
+        "--share=network",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--filesystem=/var/lib/clamav:ro",
+        "--filesystem=~/.icons:ro",
+        "--talk-name=org.freedesktop.Flatpak"
+    ],
+    "build-options" : {
+        "append-path" : "/usr/lib/sdk/typescript/bin:/usr/lib/sdk/node20/bin"
+    },
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+        {
+            "name" : "glam",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "file:///home/ben/Projects/2025/may"
+                }
+            ]
+        }
+    ]
+}

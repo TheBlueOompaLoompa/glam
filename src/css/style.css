@@ -1,0 +1,22 @@
+* {
+  --card-spacing: 6px;
+}
+
+flowboxchild {
+    background-color: var(--card-bg-color);
+    box-shadow: 0px 1px 2px 1px var(--card-shade-color);
+    border: 1px solid var(--border-color-color);
+}
+
+flowboxchild * {
+    margin: var(--card-spacing);
+}
+
+flowboxchild * * {
+    margin: unset;
+}
+
+.big-head {
+    font-size: 16pt;
+    font-weight: bold;
+}
